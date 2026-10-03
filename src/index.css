@@ -1,0 +1,202 @@
+/* ==========================================================================
+   GRANTHANA GM — DESIGN SYSTEM & TOKENS
+   Visual Direction: Simplified Developer OS + Structured Skill Tree
+   Theme: Dark, Minimal, Premium, Creative, Technical, Elegant, Approachable
+   ========================================================================== */
+
+:root {
+  /* Surfaces & Canvas (Dark Charcoal & Deep Space) */
+  --bg-canvas: #090a10;
+  --bg-surface: #10121a;
+  --bg-surface-elevated: #161824;
+  --bg-surface-hover: #1c2030;
+  --bg-surface-active: #222638;
+  --bg-card: #12141f;
+  --bg-card-subtle: #0e1017;
+  --bg-glass: rgba(16, 18, 26, 0.82);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;        /* High-contrast off-white */
+  --text-secondary: #94a3b8;      /* Slate/titanium mist */
+  --text-muted: #64748b;          /* Soft graphite */
+  --text-dim: #475569;            /* Low-emphasis code tokens */
+
+  /* Sophisticated Purple / Lavender / Indigo Accent System */
+  --accent-primary: #8b5cf6;       /* Refined Violet */
+  --accent-light: #a78bfa;         /* Lavender highlight */
+  --accent-dark: #6d28d9;          /* Deep Indigo */
+  --accent-indigo: #6366f1;        /* Modern Indigo */
+  --accent-glow: rgba(139, 92, 246, 0.16);
+  --accent-border: rgba(167, 139, 250, 0.3);
+
+  /* Auxiliary Telemetry (Subtle only) */
+  --accent-blue: #38bdf8;          /* Calm Sky Blue */
+  --accent-emerald: #10b981;       /* Active indicator green */
+  --accent-amber: #f59e0b;         /* Warning / attention */
+  --accent-rose: #f43f5e;          /* Dangerous threat marker */
+
+  /* Architectural Hairlines & Borders */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-highlight: rgba(167, 139, 250, 0.24);
+
+  /* Typography Scales */
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout Architecture */
+  --container-max: 1220px;
+  --container-pad: clamp(1.25rem, 5vw, 2.5rem);
+  --section-spacing: clamp(5rem, 9vw, 8rem);
+
+  /* Motion & Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-fast: 160ms;
+  --duration-normal: 260ms;
+  --duration-slow: 420ms;
+
+  /* Restrained Rounded Geometry */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 9999px;
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: var(--bg-canvas);
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-canvas);
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle Architectural Grid Texture (Very faint) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsive Containers */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Spacing & Hierarchy */
+section {
+  padding-top: var(--section-spacing);
+  padding-bottom: var(--section-spacing);
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  max-width: 760px;
+}
+
+.section-tag {
+  color: var(--accent-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Monospace Utilities */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Editorial Serif Accent Utility */
+.highlight-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent-light);
+}
+
+/* Responsive helper classes */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Accessibility: Focus Visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+/* Selection Color */
+::selection {
+  background-color: rgba(139, 92, 246, 0.35);
+  color: #ffffff;
+}
